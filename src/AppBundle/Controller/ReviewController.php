@@ -52,7 +52,7 @@ class ReviewController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Text $text, PublicationDate $publicationDate, Note $note)
+    public function newAction(Text $text, PublicationDate $publicationDate, Note $note)
     {
         return $this->render('review/new.html.twig', array(
             'text' => $text,
