@@ -93,9 +93,9 @@ class Flight
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="takeOfTime", type="datetime")
+     * @ORM\Column(name="takeOffTime", type="datetime")
      */
-    private $takeOfTime;
+    private $takeOffTime;
 
     /**
      * @var \DateTime
@@ -178,27 +178,27 @@ class Flight
     }
 
     /**
-     * Set takeOfTime
+     * Set takeOffTime
      *
-     * @param \DateTime $takeOfTime
+     * @param \DateTime $takeOffTime
      *
      * @return Flight
      */
-    public function setTakeOfTime($takeOfTime)
+    public function settakeOffTime($takeOffTime)
     {
-        $this->takeOfTime = $takeOfTime;
+        $this->takeOffTime = $takeOffTime;
 
         return $this;
     }
 
     /**
-     * Get takeOfTime
+     * Get takeOffTime
      *
      * @return \DateTime
      */
-    public function getTakeOfTime()
+    public function gettakeOffTime()
     {
-        return $this->takeOfTime;
+        return $this->takeOffTime;
     }
 
     /**
