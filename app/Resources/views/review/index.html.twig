@@ -3,32 +3,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>List</h1>
+    <h1>Reviews list</h1>
 
     <table>
-        <tbody>
+        <thead>
         <tr>
-            <th>Review Number (id)</th>
-            <td>{{ review.id }}</td>
-        </tr>
-        <tr>
+            <th>Id</th>
             <th>Text</th>
-            <td>{{ review.text }}</td>
-        </tr>
-        <tr>
-            <th>Publication's date</th>
-            <td>{{ review.publicationDate }}</td>
-        </tr>
-        <tr>
+            <th>Publication date</th>
             <th>Note</th>
-            <td>{{ review.note }}</td>
+            <th>Actions</th>
         </tr>
+        </thead>
+        <tbody>
+        {% for review in reviews %}
+            <tr>
+                <td><a href="{{ path('review_show', { 'id': review.id }) }}">{{ review.id }}</a></td>
+                <td>{{ review.text }}</td>
+                <td>{% if review.publicationDate %}{{ review.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ review.note }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('review_show', { 'id': review.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('review_edit', { 'id': review.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
+
     <ul>
         <li>
-            <a href="/">Return to homepage</a>
+            <a href="{{ path('review_new') }}">Create a new review</a>
         </li>
     </ul>
+
 
 {% endblock %}
