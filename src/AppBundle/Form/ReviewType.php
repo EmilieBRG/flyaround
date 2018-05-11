@@ -12,15 +12,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ReviewType extends AbstractType
 {
-    /*
-    Les 3 premières lignes sont consacrées à une annotation dite "inline", qui permet d'ajouter sa propre description à
-    la suite de celle héritée. En effet, elle est là pour inclure la description de la méthode parente AbstractType, et
-    te permettre d'ajouter la tienne à la suite.
-    La ligne suivante est la déclaration de la méthode buildForm() prenant deux paramètres, un objet $builder de type
-    FormBuilderInterface (contenant du coup ses propres méthodes), et un tableau contenant les tâches et options à appliquer.
-    Une fois dans la méthode, tu constates l'ajout à l'objet $builder de chacun de tes champs. C'est ici que tes inputs
-    seront récupérés afin de les persister en BDD.
-     */
     /**
      * {@inheritdoc} Including all fields from Review entity.
      */
@@ -49,10 +40,6 @@ class ReviewType extends AbstractType
             ->add('reviewAuthor');
     }
 
-
-    /*
-     * Bon, le builder est créé. Mais comment relier le formulaire avec l'entité maintenant ? Car en l'état, il ne sert à rien !
-     */
     /**
      * {@inheritdoc} Targeting Review entity
      */
