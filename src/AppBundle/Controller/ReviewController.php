@@ -46,15 +46,7 @@ class ReviewController extends Controller
      */
     public function newAction(Request $request)
     {
-        /*
-         *
-        La première est simple, tu instancies juste un objet $review de type Review.
-        La deuxième, quant à elle, nécessite plus d'attention. En effet, tu décides de créer un objet $form qui va
-        récupérer le retour de la méthode createForm(). Celle-ci prend deux paramètres obligatoires, ta classe formulaire
-        (donc ReviewType) et un objet $review qui recevra toutes les informations que tu auras envoyées lors de la soumission
-        du formulaire.
 
-         */
         $review = new Review();
         $form = $this->createForm(reviewType::class, $review);
 
