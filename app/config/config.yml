@@ -40,6 +40,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         unit: '%unit%'
+    form_themes: ['bootstrap_4_layout.html.twig']
 
 # Doctrine Configuration
 doctrine:

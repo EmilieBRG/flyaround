@@ -1,49 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <h1>Routes disponibles :</h1>
-            <ul>
-                <li>
-                    <a href="{{ path('planemodel_index') }}">Voir les avions</a>
-                </li>
-                <li>
-                    <a href="{{ path('reservation_index') }}">Voir les reservations</a>
-                </li>
-                <li>
-                    <a href="{{ path('flight_index') }}">Voir les vols</a>
-                </li>
-                <li>
-                    <a href="{{ path('site_index') }}">Voir les terrains</a>
-                </li>
-                <li>
-                    <a href="{{ path('review_index') }}">Voir tous les avis utilisateurs</a>
-                </li>
-
-            </ul>
-        </div>
+    <div id="container">
+        <h1>Welcome to the Flyaround !</h1>
     </div>
 {% endblock %}
 
-{% block stylesheets %}
-<style>
-    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a { color: #0000F0; }
-    a:hover { text-decoration: none; }
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
-    #container { padding: 2em; }
-
-    @media (min-width: 768px) {
-        #wrapper { width: 80%; margin: 2em auto; }
-
-        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-    }
-</style>
-{% endblock %}
