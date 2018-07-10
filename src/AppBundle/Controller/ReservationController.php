@@ -48,13 +48,28 @@ class ReservationController extends Controller
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
+
+            // Pilot mail
+            $message = (new \Swift_Message('Réservation Flyaround'))
+                ->setFrom('emibgr@gmail.com')
+                ->setTo($reservation->getFlight()->getPilot()->getEmail())
+                ->setBody('Quelqu\'un vient de réserver une place sur votre vol.<br/>Merci de voyager avec Flyaround', 'text/html');
+            $this->get('mailer')->send($message);
+
+            // Passenger mail
+            $message = (new \Swift_Message('Réservation Flyaround'))
+                ->setFrom('reservations@flyaround.com')
+                ->setTo($this->getUser()->getEmail())
+                ->setBody('Votre réservation est enregistrée.<br/>Merci de voyager avec Flyaround', 'text/html');
+            $this->get('mailer')->send($message);
+
+            return $this->redirectToRoute('reservation_show', ['id' => $reservation->getId()]);
         }
 
-        return $this->render('reservation/new.html.twig', array(
-            'reservation' => $reservation,
-            'form' => $form->createView(),
-        ));
+        return $this->render('reservation/new.html.twig', [
+                    'reservation' => $reservation,
+                    'form' => $form->createView(),
+                ]);
     }
 
     /**
