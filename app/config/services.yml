@@ -44,3 +44,7 @@ services:
     AppBundle\Service\Flightinfo:
         arguments:
             $unit: '%unit%'
+
+    AppBundle\Service\Mailer:
+            arguments:
+                $mailer: '%mailerl%'
