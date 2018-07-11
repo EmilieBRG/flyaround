@@ -49,8 +49,8 @@ class ReservationController extends Controller
             $em->persist($reservation);
             $em->flush();
 
-            $mailer->sendMail($reservation->getFlight()->getPilot()->getEmail(),'notification');
-            $mailer->sendMail($this->getUser()->getEmail(),'confirmation');
+            $mailer->sendEMail($reservation->getFlight()->getPilot()->getEmail(),'reservation@flyaround.com','notification');
+            $mailer->sendEMail($this->getUser()->getEmail(),'reservation@flyaround.com','confirmation');
 
             return $this->redirectToRoute('reservation_show', ['id' => $reservation->getId()]);
         }

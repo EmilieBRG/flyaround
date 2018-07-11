@@ -46,5 +46,3 @@ services:
             $unit: '%unit%'
 
     AppBundle\Service\Mailer:
-            arguments:
-                $mailer: '%mailerl%'
